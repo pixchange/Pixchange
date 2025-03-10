@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Pi | Official Pi Global Network</title>
+    <style>
+        /* Pi Network Background */
+        body {
+            background: #542288; /* Pi Network purple */
+            color: #fff;
+            font-family: Higher tower text;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 0 20px #ff9900;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        h1 {
+            font-size: 26px;
+            text-transform: uppercase;
+            color: #ff9900;
+            text-shadow: 0px 0px 10px #ff9900;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        .pi-logo {
+            width: 80px;
+            margin-bottom: 15px;
+            animation: spin 4s infinite linear;
+        }
+
+        label {
+            font-size: 18px;
+            display: block;
+            margin: 10px 0;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+            background: #220046;
+            color: #fff;
+        }
+
+        .btn {
+            background: #ff9900;
+            color: #fff;
+            padding: 12px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 5px;
+            transition: 0.3s;
+            box-shadow: 0px 0px 10px #ff9900;
+        }
+
+        .btn:hover {
+            background: #ffa733;
+            box-shadow: 0px 0px 20px #ffa733;
+        }
+
+        /* Payment Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: #542288;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0px 0px 20px #ff9900;
+        }
+
+        .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .wallet-box {
+            background: #220046;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #ff9900;
+            margin-bottom: 10px;
+        }
+
+        .loader {
+            width: 40px;
+            height: 40px;
+            border: 5px solid #ff9900;
+            border-top: 5px solid transparent;
+            border-radius: 50%;
+            margin: 20px auto;
+            animation: spin 1s linear infinite;
+            display: none;
+        }
+
+        .message {
+            font-size: 18px;
+            margin-top: 10px;
+            color: red;
+            display: none;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0px 0px 10px #ff9900; }
+            to { text-shadow: 0px 0px 20px #ffaa33; }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="pi.png" alt="Pi Network" class="pi-logo">
+        <h1>Buy Pi from the Official Pi Global Network</h1>
+
+        <label for="amount">Enter Amount in USDT (Min: 100 USDT)</label>
+        <input type="number" id="usdtAmount" min="100" max="5000" placeholder="Enter USDT amount">
+        
+        <label for="piAmount">You Will Receive (Pi)</label>
+        <input type="text" id="piAmount" disabled placeholder="Calculated Pi Amount">
+
+        <button class="btn" onclick="openModal()">Proceed to Buy</button>
+    </div>
+
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 style="color: #ff9900;">Payment Details</h2>
+            
+            <div class="wallet-box">
+                <strong>USDT TRC20:</strong> TB4YyUMmFV8NK1GqZyWkENNPAkPbDf7sCv
+            </div>
+
+            <div class="wallet-box">
+                <strong>USDT BEP20:</strong> 0x272691b6300a719fd1d8e7524f4c28fade078243
+            </div>
+
+            <label>Enter Your Pi Wallet Address:</label>
+            <input type="text" id="piWallet" placeholder="Input your Pi wallet address">
+
+            <button class="btn" onclick="confirmPayment()">Confirm Payment</button>
+
+            <div class="loader" id="loader"></div>
+            <p class="message" id="paymentMessage">Payment not confirmed, please try again.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('usdtAmount').addEventListener('input', function() {
+            let usdt = parseFloat(this.value);
+            if (usdt >= 100 && usdt <= 5000) {
+                document.getElementById('piAmount').value = (usdt / 0.50).toFixed(2) + " Pi";
+            } else {
+                document.getElementById('piAmount').value = "";
+            }
+        });
+
+        function openModal() {
+            document.getElementById("paymentModal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("paymentModal").style.display = "none";
+        }
+
+        function confirmPayment() {
+            document.getElementById('loader').style.display = "block";
+
+            setTimeout(() => {
+                document.getElementById('loader').style.display = "none";
+                document.getElementById('paymentMessage').style.display = "block";
+            }, 20000);
+        }
+    </script>
+
+</body>
+</html>

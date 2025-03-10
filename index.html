@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PiXchange - Buy & Sell Pi</title>
+    <style>
+        body {
+            background-color: #5423A0; /* Official Pi Purple */
+            color: #FFD700; /* Gold Text */
+            font-family: Higher tower text;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        .header {
+            font-size: 22px;
+            font-weight: bold;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            text-shadow: 0 0 10px #FFD700, 0 0 20px #FF8C00;
+        }
+
+        /* Pi Symbol Animation */
+        .pi-logo {
+            font-size: 100px;
+            font-weight: bold;
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 40px #FF8C00;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700; }
+            100% { text-shadow: 0 0 30px #FFD700, 0 0 60px #FF8C00; }
+        }
+
+        /* Exchange Rate Box */
+        .exchange-box {
+            margin-top: 180px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0px 0px 20px #FFD700;
+            font-size: 20px;
+        }
+
+        /* Floating Neon Effect */
+        .neon {
+            animation: floating 3s infinite alternate;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(10px); }
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            margin: 20px 10px;
+            padding: 15px 30px;
+            font-size: 10px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #5423A0;
+            background: #FFD700;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #FFD700, 0 0 20px #FF8C00;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #FF8C00;
+            color: #FFD700;
+            box-shadow: 0 0 20px #FFD700, 0 0 40px #FF4500;
+        }
+
+        /* Input Fields */
+        .input-field {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            width: 200px;
+        }
+
+        /* Footer */
+        footer {
+            position: fix;
+            bottom: 0;
+            width: 100%;
+            background: #1A1A1A; /* Dark background for footer */
+            color: #FFD700;
+            padding: 15px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">Official PI Global Network - Buy directly from PI Network</div><BR>
+
+   <style>
+    .pi-logo {
+        width: 80px; /* Adjust size */
+        filter: drop-shadow(0 0 10px #ffcc00); /* Neon glow effect */
+        transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+    }
+
+    .pi-logo:hover {
+        transform: scale(1.1); /* Slight zoom on hover */
+        filter: drop-shadow(0 0 20px #ffcc00); /* Stronger glow on hover */
+    }
+</style>
+
+<img src="pi.png" alt="Pi Network Logo" class="pi-logo">
+
+    <div class="exchange-box">
+        <p>Current Pi Exchange Rate:</p>
+        <h2>1 PI = $<span id="pi-rate">0.50</span></h2>
+    </div>
+
+    <!-- buy Pi Section -->
+    <div>
+        <input type="number" id="sell-amount" class="input-field" placeholder="Amount of PI to BUY">
+        <p>Total PI to Distribute: $PI <span id="buy-total">859,000,000 world wide</span></p>
+        <a href="buy.html" class="btn">Proceed to BUY</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Powered by PI Network | Sponsored by Vercel.com | Powered by Crypto.com</p>
+    </footer>
+
+    <script>
+        // Current Pi exchange rate
+        const piRate = 0.50;
+
+        // Update total cost for buying Pi
+        document.getElementById('buy-amount').addEventListener('input', function() {
+            const amount = parseFloat(this.value) || 0;
+            const total = amount * piRate;
+            document.getElementById('buy-total').innerText = total.toFixed(2);
+        });
+
+        // Update total return for selling Pi
+        document.getElementById('sell-amount').addEventListener('input', function() {
+            const amount = parseFloat(this.value) || 0;
+            const total = amount * piRate;
+            document.getElementById('sell-total').innerText = total.toFixed(2);
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+<!-- Popup Modal -->
+<div id="piModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        
+        <!-- Pi Logo (Centered at the Top) -->
+        <div class="pi-logo-container">
+            <img src="pi.png" alt="Pi Logo" class="pi-logo">
+        </div>
+
+        <!-- Heading -->
+        <h2 class="pi-title">Official PI Global Network</h2>
+
+        <!-- Modal Text -->
+        <div class="pi-message"><br><br>
+            <p><strong>PI English:</strong> This is directly from PI Blockchain nodes, to distribute Pi at its lowest rate for those who were doubting our journey. Here's your chance to buy PI at the lowest rate directly from the nodes and join those who left you behind.</p>
+            <p><strong>For those having KYC issues:</strong> Here's your chance to join the moving train.</p>
+            
+            <p><strong>PI Indonesian:</strong> Ini langsung dari node Blockchain PI, untuk mendistribusikan Pi dengan harga terendah bagi mereka yang meragukan perjalanan kami.</p>
+            <p><strong>PI Chinese (Simplified):</strong> 这是直接来自 PI 区块链节点，以最低价格分发 Pi，给那些曾经怀疑我们旅程的人。</p>
+            <p><strong>PI Spanish:</strong> Esto proviene directamente de los nodos de la cadena de bloques de PI, para distribuir Pi a su tarifa más baja.</p>
+            <p><strong>PI French:</strong> Ceci provient directement des nœuds de la blockchain PI, pour distribuer Pi à son tarif le plus bas.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Styling -->
+<style>
+    .modal {
+        display: flex;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        justify-content: center;
+        align-items: center;
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    .modal-content {
+        background: #5427C3; /* Pi background color */
+        color: white;
+        padding: 20px;
+        border-radius: 15px;
+        width: 90%; /* Smaller width for mobile */
+        max-width: 400px; /* Prevents it from being too big */
+        text-align: center;
+        box-shadow: 0 0 15px #FF9800;
+        border: 2px solid #FF9800;
+        position: relative;
+        overflow-y: auto; /* Enables scrolling inside modal */
+        max-height: 80vh; /* Prevents modal from being too tall */
+    }
+
+    .pi-logo-container {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .pi-logo {
+        width: 50px;
+        filter: drop-shadow(0 0 8px #FF9800);
+    }
+
+    .pi-title {
+        color: #FF9800;
+        text-shadow: 0 0 8px #FF9800;
+        font-size: 18px;
+    }
+
+    .pi-message {
+        margin-top: 10px;
+    }
+
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+        color: white;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+</style>
+
+<!-- Modal Script -->
+<script>
+    function closeModal() {
+        document.getElementById("piModal").style.display = "none";
+    }
+
+    // Auto-close after 3 minutes (180,000ms)
+    setTimeout(() => {
+        closeModal();
+    }, 180000);
+</script>
+
+
+
+  
+</body>
+</html>
