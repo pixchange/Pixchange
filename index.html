@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PiXchange - Buy Pi</title>
+    <title>PiXchange - Buy & Sell Pi</title>
     <style>
         body {
             background-color: #5423A0; /* Official Pi Purple */
@@ -125,7 +125,7 @@
 <img src="pi.png" alt="Pi Network Logo" class="pi-logo">
 
     <div class="exchange-box">
-        <p>Current Direct Pi Blockchain node Rate:</p>
+        <p>Current Pi Exchange Rate:</p>
         <h2>1 PI = $<span id="pi-rate">0.50</span></h2>
     </div>
 
@@ -153,12 +153,228 @@
         });
 
         // Update total return for selling Pi
-        document.getElementById('sell-amount').addEventListener('input', function() {
+        document.getElementById('buy-amount').addEventListener('input', function() {
             const amount = parseFloat(this.value) || 0;
             const total = amount * piRate;
-            document.getElementById('sell-total').innerText = total.toFixed(2);
+            document.getElementById('buy-total').innerText = total.toFixed(2);
         });
-    </script>
+    </script><br>
+
+
+
+
+<div style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+">
+
+    <!-- Banner 1 -->
+    <div style="
+        width: 350px;
+        font-family: Higher tower text;
+        padding: 20px;
+        background: #542B7A; /* Pi Network Background Color */
+        border-radius: 15px;
+        box-shadow: 0 0 20px #FFB400, 0 0 40px #FFB400;
+        text-align: center;
+        animation: glow 2s infinite alternate;
+    ">
+        <img src="usa.jpg" alt="Pi Banner Image" style="
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #FFB400;
+        ">
+        <p style="
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+            text-shadow: 0 0 10px #FFB400;
+        ">
+            "I never believed in Pi at first, but now I'm a proud buyer. Thanks for this opportunity!"  
+            Soren Jeromy, USA**
+        </p>
+    </div>
+
+    <!-- Banner 2 -->
+    <div style="
+        width: 350px;
+        padding: 20px;
+        background: #542B7A;
+        border-radius: 15px;
+        box-shadow: 0 0 20px #FFB400, 0 0 40px #FFB400;
+        text-align: center;
+        animation: glow 2s infinite alternate;
+    ">
+        <img src="Germany.jpg" alt="Pi Banner Image" style="
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #FFB400;
+        ">
+        <p style="
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+            text-shadow: 0 0 10px #FFB400;
+        ">
+            "Buying Pi here was the best decision I made. Smooth process and trusted sellers!"  
+            Sophia, Germany**
+        </p>
+    </div>
+
+    <!-- Banner 3 (Philippines - Filipino) -->
+    <div style="
+        width: 350px;
+        padding: 20px;
+        background: #542B7A;
+        border-radius: 15px;
+        box-shadow: 0 0 20px #FFB400, 0 0 40px #FFB400;
+        text-align: center;
+        animation: glow 2s infinite alternate;
+    ">
+        <img src="filipino.jpg" alt="Pi Banner Image" style="
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #FFB400;
+        ">
+        <p style="
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+            text-shadow: 0 0 10px #FFB400;
+        ">
+            "Sa wakas! Nakabili na ako ng Pi. Salamat sa inyong mabilis at maaasahang serbisyo!"  
+            Mranos mirajio, Philippines**
+        </p>
+    </div>
+
+    <!-- Banner 4 -->
+    <div style="
+        width: 350px;
+        padding: 20px;
+        background: #542B7A;
+        border-radius: 15px;
+        box-shadow: 0 0 20px #FFB400, 0 0 40px #FFB400;
+        text-align: center;
+        animation: glow 2s infinite alternate;
+    ">
+        <img src="Brazil.jpg" alt="Pi Banner Image" style="
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #FFB400;
+        ">
+        <p style="
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+            text-shadow: 0 0 10px #FFB400;
+        ">
+            "Pi is the future! I was lucky to buy it at the lowest rate possible."  
+            Lucas, Brazil**
+        </p>
+    </div>
+
+    <!-- Banner 5 (Indonesia - Bahasa) -->
+    <div style="
+        width: 350px;
+        padding: 20px;
+        background: #542B7A;
+        border-radius: 15px;
+        box-shadow: 0 0 20px #FFB400, 0 0 40px #FFB400;
+        text-align: center;
+        animation: glow 2s infinite alternate;
+    ">
+        <img src="indonesia.jpg" alt="Pi Banner Image" style="
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #FFB400;
+        ">
+        <p style="
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+            text-shadow: 0 0 10px #FFB400;
+        ">
+            "Saya akhirnya membeli Pi! Terima kasih atas layanan cepat dan aman."  
+            Rizki, Indonesia**
+        </p>
+    </div>
+
+    <!-- Banner 6 -->
+    <div style="
+        width: 350px;
+        padding: 20px;
+        background: #542B7A;
+        border-radius: 15px;
+        box-shadow: 0 0 20px #FFB400, 0 0 40px #FFB400;
+        text-align: center;
+        animation: glow 2s infinite alternate;
+    ">
+        <img src="china.jpg" alt="Pi Banner Image" style="
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #FFB400;
+        ">
+        <p style="
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+            text-shadow: 0 0 10px #FFB400;
+        ">
+            "This platform made my Pi investment journey easier. I’m grateful for this!"  
+            Martha, USA **
+        </p>
+    </div>
+
+</div>
+
+<style>
+@keyframes glow {
+    from {
+        box-shadow: 0 0 20px #FFB400, 0 0 40px #FFB400;
+    }
+    to {
+        box-shadow: 0 0 25px #FFB400, 0 0 50px #FFB400;
+    }
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
